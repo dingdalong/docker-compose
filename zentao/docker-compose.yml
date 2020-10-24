@@ -3,7 +3,7 @@ services:
   zentao:
     image: easysoft/zentao:12.4.stable
     container_name: 'zentao'
-    hostname: '192.168.130.33'
+    hostname: 'zentao.example.io'
     restart: always
     environment: 
       TZ: Asia/Shanghai
