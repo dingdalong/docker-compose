@@ -1,0 +1,13 @@
+version: '3.8'
+services:
+  scm:
+    image: scmmanager/scm-manager:2.7.1
+    container_name: 'scmmanager'
+    restart: always
+    environment: 
+      TZ: Asia/Shanghai
+    ports:
+    - "80:8080"
+    - "2222:2222"
+    volumes:
+    - ./scmhome:/var/lib/scm

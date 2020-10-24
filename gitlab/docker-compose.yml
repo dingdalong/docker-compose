@@ -1,0 +1,59 @@
+version: '3.8'
+services:
+  gitlab:
+    image: gitlab/gitlab-ee:13.5.1-ee.0
+    container_name: 'gitlab'
+    restart: always
+    hostname: 'gitlab.example.io'
+    environment: 
+      TZ: Asia/Shanghai
+      GITLAB_OMNIBUS_CONFIG: |
+        ########## GitLab配置 ##########
+        external_url 'http://gitlab.example.io' #gitlab地址
+        gitlab_rails['time_zone'] = 'Asia/Shanghai' #时区
+        gitlab_rails['backup_keep_time'] = 2419200 #备份有效期
+        ########## Gitlab Pages配置 ##########
+        pages_external_url 'http://pages.example.io' # DNS那边需要解析为*.pages.example.io
+        gitlab_pages['inplace_chroot'] = true #docker模式下需要设置
+        ########## Mattermost配置 ##########
+        mattermost_external_url 'http://mattermost.example.io' #mattermost地址
+        mattermost['enable'] = true
+        ########## Container Registry配置 ##########
+        registry_external_url 'http://registry.gitlab.example.io' #使用http时，需要在docker的daemon.json中添加"insecure-registries": ["http://registry.gitlab.example.io"]
+        registry['enable'] = true
+        ########### LDAP 配置 ##########
+        gitlab_rails['ldap_enabled'] = true
+        gitlab_rails['prevent_ldap_sign_in'] = false
+        gitlab_rails['ldap_servers'] = YAML.load <<-'EOS'
+        main:
+          label: 'LDAP'
+          host: 'ldap.example.io'
+          port: 389
+          uid: 'sAMAccountName'
+          bind_dn: ''
+          password: ''
+          encryption: 'plain'
+          base: ''
+          attributes:
+            username: ['sAMAccountName']
+            email: ['mail']
+            name: 'cn'
+            first_name: 'givenName'
+            last_name: 'sn'
+            sync_ssh_keys: true
+        EOS
+        ###########  ###########
+    ports:
+      - "443:443"
+      - "80:80"
+      - '822:22'
+    volumes:
+      - ./config:/etc/gitlab
+      - ./logs:/var/log/gitlab
+      - ./data:/var/opt/gitlab
+      - ./ruby:/license_data # 用于获取license
+#  ruby:
+#    image: ruby
+#    volumes:
+#      - ./ruby:/data # 存放license.rb并生成license.pub和GitLabBV.gitlab-license
+#    tty: true # 默认启动一个sh避免关机
