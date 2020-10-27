@@ -38,6 +38,3 @@
 * 获取指定命名空间中所有的pod：`kubectl get pods -n <namespace>`
 * 获取pod中的日志：`kubectl logs <podname> -n <namespace>`
 * 获取pod描述：`kubectl describe pod <podname> -n <namespace>`
-
-kubectl get pods -n gitlab-managed-apps
-kubectl logs install-elastic-stack -n gitlab-managed-apps

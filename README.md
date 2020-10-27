@@ -1,39 +1,19 @@
-## Docker
+# Docker-compose
 
-* 安装  
-`sudo curl -fsSL https://get.docker.com | bash -s docker --mirror Aliyun`
-* 启动、开机启动、添加到用户组  
-`sudo systemctl start docker && sudo systemctl enable docker && sudo usermod -aG docker develop && newgrp docker`
-* 加速源
-    * 创建`cat > ./daemon.json`并写入
-        ```    
-        {
-                "registry-mirrors": ["https://xxx.mirror.aliyuncs.com"] //xxx需要替换，查一下自己的阿里云加速地址
-        }
-        ```
-    * 拷贝、重载并重启  
-    `sudo mv ./daemon.json /etc/docker/daemon.json && sudo systemctl daemon-reload && sudo systemctl restart docker`
+利用docker-compose快速搭建的开发系统  
+到对应的目录使用docker-compose up -d启动
 
----
+* [Docker](./docker/README.md)：一切的基础
+* [GitLab](./gitlab//README.md)：程序用到的git仓库
+* [k8s](./k8s/README.md)：使用kind快速创建
+* [Harbor](./harbor/README.md)：镜像仓库
+* [Zentao](./zentao/README.md)：协作平台
+* [FTP](./ftp/README.md)：网盘
+* [SVN](./scmmanager/README.md)：策划和美术使用
+* [SSL](./ssl/README.md)：自签证书
 
-## Docker-Compose
-* 安装  
-``
-sudo curl -L "https://github.com/docker/compose/releases/download/1.27.4/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
-``
-* 添加执行权限  
-``
-sudo chmod +x /usr/local/bin/docker-compose
-``
-## 安装
-进入对应的目录，使用`docker-compose up -d`即可启动
-* [Gitlab](./gitlab/README.md)
-* [SCM-Manager](./scmmanager/README.md)
-* [Zentao](./zentao/README.md)
-* [Mysql](./mysql)
-* [Redis](./redis)
-
-## 时间同步
+## 注意事项
+### 时间同步
 注意服务器时间，在安装前最好同步一下时间
 1. 查看当前机器时间`date`，查看BIOS时间`hwclock  -r`
 2. 安装ntpdate`yum install ntpdate -y`

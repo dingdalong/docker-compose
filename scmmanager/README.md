@@ -1,4 +1,5 @@
 # SCM Manager
+svn管理使用scm-manager
 * 管理员账号`scmadmin`
 ---
 #### 注意

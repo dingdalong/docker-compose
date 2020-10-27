@@ -1,0 +1,10 @@
+version: '3.8'
+services:
+    openssl:
+        build: .
+        container_name: 'openssl'
+        environment: 
+            TZ: Asia/Shanghai
+        volumes:
+        - ./ca:/root/ca
+        tty: true # 默认启动一个sh避免关机
