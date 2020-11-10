@@ -12,6 +12,7 @@
 2. 运行`kind create cluster --config=kind-config.yaml`
     * 注意GitLab支持的Kubernetes版本
 
+* 删除cluster`kind delete cluster`
 ## 集成到Gitlab
 1. 下载kubectl
     ```

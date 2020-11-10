@@ -20,3 +20,5 @@
 3. 同步时间`ntpdate ntp1.aliyun.com`
 4. 同步到BIOS`clock -w`
 5. 定时同步`0 6 * * *    ntpdate ntp1.aliyun.com`
+
+设置时区`ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime && echo "Asia/Shanghai" > /etc/timezone`

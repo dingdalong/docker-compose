@@ -4,7 +4,7 @@
 * 启用ip转发`net.ipv4.ip_forward=1`，重启网络`sudo systemctl restart network`
 * 定期备份输入`crontab -e`后，输入` 0 8 * * * docker exec -t gitlab gitlab-backup create`保存退出
 ### 获取license
-目前最新13.5.1可使用
+目前最新13.5.3可使用
 1. 修改`ruby/license.rb`中的`license.starts_at`和`license.expires_at`为期望的开始、结束时间
 
 2. 进入ruby，安装并生成license
