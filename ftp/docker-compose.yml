@@ -11,6 +11,7 @@ services:
       - PASV_ADDRESS=ftp.example.io
       - PASV_MIN_PORT=21100
       - PASV_MAX_PORT=21110
+      - REVERSE_LOOKUP_ENABLE=NO
     volumes:
     - ./vsftpd:/home/vsftpd
     ports: 

@@ -8,7 +8,8 @@
     * 创建`cat > ./daemon.json`并写入
         ```    
         {
-                "registry-mirrors": ["https://xxx.mirror.aliyuncs.com"] //xxx需要替换，查一下自己的阿里云加速地址
+                "registry-mirrors": [], # 根据需要填写加速镜像地址
+                "insecure-registries": [] # 根据需要填写不校验地址
         }
         ```
     * 拷贝、重载并重启  
