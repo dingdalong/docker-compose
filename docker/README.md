@@ -5,7 +5,7 @@
 * 启动、开机启动、添加到用户组  
 `sudo systemctl start docker && sudo systemctl enable docker && sudo usermod -aG docker develop && newgrp docker`
 * 加速源
-    * 创建`cat > ./daemon.json`并写入
+    * 创建`cat >daemon.json`并写入
         ```    
         {
                 "registry-mirrors": [], # 根据需要填写加速镜像地址

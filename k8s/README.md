@@ -26,7 +26,7 @@
 3. 获取名称：`kubectl get secrets`
 
 4. 获取ca文件：`kubectl get secret <第3步获取到的名称> -o jsonpath="{['data']['ca\.crt']}" | base64 --decode`
-
+kubectl get secret default-token-nv22k -o jsonpath="{['data']['ca\.crt']}" | base64 --decode
 5. 获取token：
     1. 绑定账号和角色信息到集群：`kubectl apply -f gitlab-admin-service-account.yaml`
 
@@ -39,3 +39,8 @@
 * 获取指定命名空间中所有的pod：`kubectl get pods -n <namespace>`
 * 获取pod中的日志：`kubectl logs <podname> -n <namespace>`
 * 获取pod描述：`kubectl describe pod <podname> -n <namespace>`
+* 可能用到的操作  
+    
+    kubectl get pods -n gitlab-managed-apps  
+    kubectl logs install-runner -n gitlab-managed-apps  
+    kubectl describe pod install-runner -n gitlab-managed-apps  

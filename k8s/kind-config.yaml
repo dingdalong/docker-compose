@@ -6,6 +6,8 @@ containerdConfigPatches:
   - |-
     [plugins."io.containerd.grpc.v1.cri".registry.mirrors."docker.io"]
       endpoint = ["http://hub.daocloud.io"]
+    [plugins."io.containerd.grpc.v1.cri".registry.configs."reg.ewan.io".tls]
+      insecure_skip_verify = true
 nodes:
   - role: control-plane
     image: kindest/node:v1.17.11@sha256:5240a7a2c34bf241afb54ac05669f8a46661912eab05705d660971eeb12f6555

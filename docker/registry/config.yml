@@ -8,13 +8,19 @@ storage:
   filesystem:
     rootdirectory: /var/lib/registry
 http:
-  addr: :5000
+  addr: :443
+  host: https://reg.domain.com
   headers:
     X-Content-Type-Options: [nosniff]
+  http2:
+    disabled: false
+  tls:
+    certificate: /etc/docker/registry/ssl/domain.crt
+    key: /etc/docker/registry/ssl/domain.key
 health:
   storagedriver:
     enabled: true
     interval: 10s
-    threshold: 3
+threshold: 3
 proxy:
   remoteurl: https://registry-1.docker.io

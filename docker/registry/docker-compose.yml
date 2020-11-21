@@ -6,14 +6,11 @@ services:
     restart: always
     environment: 
       TZ: Asia/Shanghai
-      REGISTRY_HTTP_ADDR: 0.0.0.0:443
-      REGISTRY_HTTP_TLS_CERTIFICATE: /ssl/domain.crt
-      REGISTRY_HTTP_TLS_KEY: /ssl/domain.key
     ports:
       - 443:443
       - 5000:5000
     volumes:
       - /data:/var/lib/registry
       - ./config.yml:/etc/docker/registry/config.yml
-      - /ssl/domain.crt:/ssl/domain.crt
-      - /ssl/domain.key:/ssl/domain.key
+      - /ssl/domain.crt:/etc/docker/registry/ssl/domain.crt
+      - /ssl/domain.key:/etc/docker/registry/ssl/domain.key
