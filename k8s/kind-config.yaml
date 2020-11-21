@@ -4,9 +4,9 @@ networking:
   apiServerAddress: 127.0.0.1
 containerdConfigPatches:
   - |-
-    [plugins."io.containerd.grpc.v1.cri".registry.mirrors."docker.io"]
+    [plugins."io.containerd.grpc.v1.cri".registry.mirrors."hub.daocloud.io"]
       endpoint = ["http://hub.daocloud.io"]
-    [plugins."io.containerd.grpc.v1.cri".registry.configs."reg.ewan.io".tls]
+    [plugins."io.containerd.grpc.v1.cri".registry.configs."hub.daocloud.io".tls]
       insecure_skip_verify = true
 nodes:
   - role: control-plane
