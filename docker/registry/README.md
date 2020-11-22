@@ -14,3 +14,11 @@
     "insecure-registries": [domain]
 }
 ```
+
+## Nexus3
+各类仓库的管理，包括docker、yum、apt等。有空可以研究一下
+管理员账号：admin
+查看管理员密码：cat /srv/docker/nexus/nexus-data/admin.password
+
+## Portainer
+一个registry的webui

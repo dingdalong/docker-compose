@@ -8,9 +8,7 @@ services:
       TZ: Asia/Shanghai
     ports:
       - 443:443
-      - 5000:5000
     volumes:
-      - /data:/var/lib/registry
+      - /data/registry:/var/lib/registry
       - ./config.yml:/etc/docker/registry/config.yml
-      - /ssl/domain.crt:/etc/docker/registry/ssl/domain.crt
-      - /ssl/domain.key:/etc/docker/registry/ssl/domain.key
+      - /ssl:/etc/docker/registry/ssl

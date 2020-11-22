@@ -11,6 +11,7 @@
 * [FTP](./ftp/README.md)：网盘
 * [SVN](./scmmanager/README.md)：策划和美术使用
 * [SSL](./ssl/README.md)：自签证书
+* [Registry](./docker/registry/README.md)：镜像仓库
 
 ## 注意事项
 ### 时间同步
