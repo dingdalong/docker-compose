@@ -6,12 +6,14 @@ services:
     restart: always
     environment: 
       - TZ='Asia/Shanghai'
+      - LANG=zh_CN.UTF-8
       - FTP_USER=user
       - FTP_PASS=pass
       - PASV_ADDRESS=ftp.example.io
       - PASV_MIN_PORT=21100
       - PASV_MAX_PORT=21110
       - REVERSE_LOOKUP_ENABLE=NO
+      - LOCAL_UMASK=077
     volumes:
     - ./vsftpd:/home/vsftpd
     ports: 

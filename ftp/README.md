@@ -14,8 +14,14 @@
 2. 复制密钥文件`cp ./rsync/rsync.password /etc/rsync.password`
 3. 获取密钥权限`chmod 600 /etc/rsync.password`
 
+* 注意防火墙问题
 #### 外网服务器：
 1. 下载inotify-tools`https://github.com/inotify-tools/inotify-tools.git`
 2. 安装依赖工具`yum  -y install autoconf automake libtool`
 3. 安装inotify`cd inotify-tools && autogen.sh && .configure && make && make install`
 4. 运行`inotify-tools/inotify_bak.sh`
+
+
+参考：  
+https://www.pianshen.com/article/2536273844/  
+https://www.cnblogs.com/guarderming/p/10929081.html
