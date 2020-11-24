@@ -23,3 +23,5 @@
 5. 定时同步`0 6 * * *    ntpdate ntp1.aliyun.com`
 
 设置时区`ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime && echo "Asia/Shanghai" > /etc/timezone`
+
+### [中文字符集支持](./docker/README.md)
