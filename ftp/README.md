@@ -15,6 +15,7 @@
 3. 获取密钥权限`chmod 600 /etc/rsync.password`
 
 * 注意防火墙问题
+* 临时关闭`selinux`：`setenforce 0`
 #### 外网服务器：
 1. 下载inotify-tools`https://github.com/inotify-tools/inotify-tools.git`
 2. 安装依赖工具`yum  -y install autoconf automake libtool`
