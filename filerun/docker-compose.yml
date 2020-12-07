@@ -3,6 +3,8 @@ version: '2'
 services:
   db:
     image: mariadb:10.1
+    container_name: 'db'
+    restart: always
     environment:
       MYSQL_ROOT_PASSWORD: 123456
       MYSQL_USER: filerun
@@ -13,6 +15,8 @@ services:
 
   web:
     image: afian/filerun
+    container_name: 'filerun'
+    restart: always
     environment:
       FR_DB_HOST: db
       FR_DB_PORT: 3306
