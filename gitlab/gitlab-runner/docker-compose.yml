@@ -7,8 +7,10 @@ services:
     environment:
       TZ: Asia/Shanghai
     volumes:
+      - ./install.sh:~/install.sh
       - ./config:/etc/gitlab-runner
       - /var/run/docker.sock:/var/run/docker.sock
+    command: ["/app/launch_all.sh"]
   gitlab-runner2:
     image: gitlab-runner-alpine-docker:latest
     container_name: "runner2"
@@ -16,6 +18,7 @@ services:
     environment:
       TZ: Asia/Shanghai
     volumes:
+      - ./install.sh:~/install.sh
       - ./config:/etc/gitlab-runner
       - /var/run/docker.sock:/var/run/docker.sock
   gitlab-runner3:
@@ -25,6 +28,7 @@ services:
     environment:
       TZ: Asia/Shanghai
     volumes:
+      - ./install.sh:~/install.sh
       - ./config:/etc/gitlab-runner
       - /var/run/docker.sock:/var/run/docker.sock
   gitlab-runner4:
@@ -34,5 +38,6 @@ services:
     environment:
       TZ: Asia/Shanghai
     volumes:
+      - ./install.sh:~/install.sh
       - ./config:/etc/gitlab-runner
       - /var/run/docker.sock:/var/run/docker.sock
