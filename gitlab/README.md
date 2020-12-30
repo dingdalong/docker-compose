@@ -7,12 +7,12 @@
 目前最新13.5.3可使用
 1. 修改`ruby/license.rb`中的`license.starts_at`和`license.expires_at`为期望的开始、结束时间
 
-2. 进入ruby，安装并生成license
+2. 进入ruby镜像，安装并生成license
     ```
     gem install gitlab-license
     ruby license.rb
     ```
-3. 进入gitlab，替换license_encryption_key.pub  
+3. 进入gitlab镜像，替换license_encryption_key.pub  
 `cp ./license_data/license_key.pub /opt/gitlab/embedded/service/gitlab-rails/.license_encryption_key.pub`
 
 4. 更改计划类型  

@@ -21,28 +21,28 @@ services:
         ########## Container Registry配置 ##########
         registry_external_url 'http://registry.gitlab.example.io' #使用http时，需要在docker的daemon.json中添加"insecure-registries": ["http://registry.gitlab.example.io"]
         registry['enable'] = true
-        ########### LDAP 配置 ##########
-        gitlab_rails['ldap_enabled'] = true
-        gitlab_rails['prevent_ldap_sign_in'] = false
-        gitlab_rails['ldap_servers'] = YAML.load <<-'EOS'
-        main:
-          label: 'LDAP'
-          host: 'ldap.example.io'
-          port: 389
-          uid: 'sAMAccountName'
-          bind_dn: ''
-          password: ''
-          encryption: 'plain'
-          base: ''
-          attributes:
-            username: ['sAMAccountName']
-            email: ['mail']
-            name: 'cn'
-            first_name: 'givenName'
-            last_name: 'sn'
-            sync_ssh_keys: true
-        EOS
-        ###########  ###########
+        ############ LDAP 配置 ##########
+        #gitlab_rails['ldap_enabled'] = true
+        #gitlab_rails['prevent_ldap_sign_in'] = false
+        #gitlab_rails['ldap_servers'] = YAML.load <<-'EOS'
+        #main:
+        #  label: 'LDAP'
+        #  host: 'ldap.example.io'
+        #  port: 389
+        #  uid: 'sAMAccountName'
+        #  bind_dn: ''
+        #  password: ''
+        #  encryption: 'plain'
+        #  base: ''
+        #  attributes:
+        #    username: ['sAMAccountName']
+        #    email: ['mail']
+        #    name: 'cn'
+        #    first_name: 'givenName'
+        #    last_name: 'sn'
+        #    sync_ssh_keys: true
+        #EOS
+        ############  ###########
     ports:
       - "443:443"
       - "80:80"
@@ -52,8 +52,8 @@ services:
       - ./logs:/var/log/gitlab
       - ./data:/var/opt/gitlab
       - ./ruby:/license_data # 用于获取license
-#  ruby:
-#    image: ruby
-#    volumes:
-#      - ./ruby:/data # 存放license.rb并生成license.pub和GitLabBV.gitlab-license
-#    tty: true # 默认启动一个sh避免关机
+  ruby:
+    image: ruby
+    volumes:
+      - ./ruby:/data # 存放license.rb并生成license.pub和GitLabBV.gitlab-license
+    tty: true # 默认启动一个sh避免关机
