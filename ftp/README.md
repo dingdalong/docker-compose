@@ -20,7 +20,7 @@
 1. 下载inotify-tools`https://github.com/inotify-tools/inotify-tools.git`
 2. 安装依赖工具`yum  -y install autoconf automake libtool`
 3. 安装inotify`cd inotify-tools && autogen.sh && .configure && make && make install`
-4. 运行`inotify-tools/inotify_bak.sh`
+4. 运行`sudo inotify-tools/inotify_bak.sh&`
 
 
 参考：  
