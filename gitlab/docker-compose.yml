@@ -16,10 +16,10 @@ services:
         pages_external_url 'http://pages.example.io' # DNS那边需要解析为*.pages.example.io
         gitlab_pages['inplace_chroot'] = true #docker模式下需要设置
         ########## Mattermost配置 ##########
-        mattermost_external_url 'http://mattermost.example.io' #mattermost地址
+        mattermost_external_url 'http://mm.example.io' #mattermost地址
         mattermost['enable'] = true
         ########## Container Registry配置 ##########
-        registry_external_url 'http://registry.gitlab.example.io' #使用http时，需要在docker的daemon.json中添加"insecure-registries": ["http://registry.gitlab.example.io"]
+        registry_external_url 'http://reg.gitlab.example.io' #使用http时，需要在docker的daemon.json中添加"insecure-registries": ["http://registry.gitlab.example.io"]
         registry['enable'] = true
         ############ LDAP 配置 ##########
         #gitlab_rails['ldap_enabled'] = true
