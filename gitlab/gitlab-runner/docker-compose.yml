@@ -8,7 +8,8 @@ services:
       TZ: Asia/Shanghai
     volumes:
       - ./config:/etc/gitlab-runner
-    tty: true
+    privileged: true
+    command: ["/usr/sbin/init"]
   gitlab-runner2:
     image: gitlab-runner-centos:latest
     container_name: "runner2"
@@ -17,7 +18,8 @@ services:
       TZ: Asia/Shanghai
     volumes:
       - ./config:/etc/gitlab-runner
-    tty: true
+    privileged: true
+    command: ["/usr/sbin/init"]
   gitlab-runner3:
     image: gitlab-runner-centos:latest
     container_name: "runner3"
@@ -26,7 +28,8 @@ services:
       TZ: Asia/Shanghai
     volumes:
       - ./config:/etc/gitlab-runner
-    tty: true
+    privileged: true
+    command: ["/usr/sbin/init"]
   gitlab-runner4:
     image: gitlab-runner-centos:latest
     container_name: "runner4"
@@ -35,4 +38,5 @@ services:
       TZ: Asia/Shanghai
     volumes:
       - ./config:/etc/gitlab-runner
-    tty: true
+    privileged: true
+    command: ["/usr/sbin/init"]
