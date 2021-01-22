@@ -1,43 +1,34 @@
 version: '3.8'
 services:
   gitlab-runner:
-    image: gitlab-runner-alpine-docker:latest
+    image: gitlab-runner-centos:latest
     container_name: "runner"
     restart: always
     environment:
       TZ: Asia/Shanghai
     volumes:
-      - ./install.sh:~/install.sh
       - ./config:/etc/gitlab-runner
-      - /var/run/docker.sock:/var/run/docker.sock
-    command: ["/app/launch_all.sh"]
   gitlab-runner2:
-    image: gitlab-runner-alpine-docker:latest
+    image: gitlab-runner-centos:latest
     container_name: "runner2"
     restart: always
     environment:
       TZ: Asia/Shanghai
     volumes:
-      - ./install.sh:~/install.sh
       - ./config:/etc/gitlab-runner
-      - /var/run/docker.sock:/var/run/docker.sock
   gitlab-runner3:
-    image: gitlab-runner-alpine-docker:latest
+    image: gitlab-runner-centos:latest
     container_name: "runner3"
     restart: always
     environment:
       TZ: Asia/Shanghai
     volumes:
-      - ./install.sh:~/install.sh
       - ./config:/etc/gitlab-runner
-      - /var/run/docker.sock:/var/run/docker.sock
   gitlab-runner4:
-    image: gitlab-runner-alpine-docker:latest
+    image: gitlab-runner-centos:latest
     container_name: "runner4"
     restart: always
     environment:
       TZ: Asia/Shanghai
     volumes:
-      - ./install.sh:~/install.sh
       - ./config:/etc/gitlab-runner
-      - /var/run/docker.sock:/var/run/docker.sock

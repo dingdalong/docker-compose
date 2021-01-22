@@ -1,4 +1,4 @@
 #!/bin/sh
 
-docker build ./build -t gitlab-runner-alpine-docker
+docker build ./build -t gitlab-runner-centos
 docker-compose up -d
