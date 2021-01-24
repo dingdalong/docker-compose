@@ -6,7 +6,10 @@ RUN curl https://setup.ius.io | sh && yum install -y git224 \
     && yum update -y \
     && curl -L "https://packages.gitlab.com/install/repositories/runner/gitlab-runner/script.rpm.sh" | bash \
     && yum list gitlab-runner --showduplicates | sort -r \
-    && yum install -y subversion make autoconf readline-devel centos-release-scl devtoolset-8 \
+    && yum install -y wget subversion make autoconf readline-devel
+
+RUN yum install -y centos-release-scl \
+    && yum install -y devtoolset-8-gcc* \
     && scl enable devtoolset-8 bash \
     && mv /usr/bin/gcc /usr/bin/gcc-4.8.5 \
     && ln -s /opt/rh/devtoolset-8/root/bin/gcc /usr/bin/gcc
