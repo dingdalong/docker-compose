@@ -5,6 +5,10 @@ services:
     container_name: 'gitlab'
     restart: always
     hostname: 'gitlab.example.io'
+    logging: 
+    driver: "json-file" 
+    options: 
+      max-size: "5g"
     environment: 
       TZ: Asia/Shanghai
       GITLAB_OMNIBUS_CONFIG: |
